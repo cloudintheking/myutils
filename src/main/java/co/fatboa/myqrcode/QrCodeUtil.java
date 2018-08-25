@@ -1,4 +1,4 @@
-package co.fatboa;
+package co.fatboa.myqrcode;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;

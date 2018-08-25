@@ -1,6 +1,6 @@
 package co.fatboa.mypoi;
 
-import co.fatboa.Enums.MyCellType;
+import co.fatboa.mypoi.enums.MyCellType;
 import org.apache.poi.ss.usermodel.CellStyle;
 
 /**

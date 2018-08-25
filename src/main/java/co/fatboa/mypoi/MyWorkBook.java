@@ -1,7 +1,7 @@
 package co.fatboa.mypoi;
 
-import co.fatboa.Enums.MyCellType;
-import co.fatboa.Enums.MyWorkBookType;
+import co.fatboa.mypoi.enums.MyCellType;
+import co.fatboa.mypoi.enums.MyWorkBookType;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.apache.poi.POIXMLDocumentPart;

@@ -1,10 +1,10 @@
 package co.fatboa;
 
 
-import co.fatboa.Enums.MyWorkBookType;
+import co.fatboa.mypoi.enums.MyWorkBookType;
 import co.fatboa.mypoi.MySheet;
 import co.fatboa.mypoi.MyWorkBook;
-import org.apache.log4j.lf5.util.ResourceUtils;
+import co.fatboa.myqrcode.QrCodeUtil;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.junit.jupiter.api.Test;
 

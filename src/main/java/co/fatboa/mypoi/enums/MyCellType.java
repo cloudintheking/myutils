@@ -1,19 +1,20 @@
-package co.fatboa.Enums;
+package co.fatboa.mypoi.enums;
+
 /**
  * @Author: hl
- * @Description: excel类型枚举
- * @Date: 17:23 2018/8/8
+ * @Description: 单元格类型枚举
+ * @Date: 16:49 2018/8/8
  * @Modified By:
  * @Version 1.0
  */
-public enum MyWorkBookType {
+public enum MyCellType {
+    Text(0, "文本"),
+    Image(1, "图片");
 
-    HSSFWORKBOOK(0, "操作excel2003以下版本(.xls)"),
-    XSSFWORKBOOK(1, "操作excel2007以上版本(.xlsx)");
     private int code;
     private String message;
 
-    MyWorkBookType(int code, String message) {
+    MyCellType(int code, String message) {
         this.code = code;
         this.message = message;
     }
