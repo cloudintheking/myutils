@@ -1,6 +1,6 @@
-package co.fatboa.mypoi;
+package co.fatboa.myutils.mypoi;
 
-import co.fatboa.mypoi.enums.MyCellType;
+import co.fatboa.myutils.mypoi.enums.MyCellType;
 import org.apache.poi.ss.usermodel.CellStyle;
 
 /**
@@ -21,6 +21,22 @@ public class MyCell {
     private int width; //宽度 可不配置,为默认宽度
     private CellStyle cellStyle; //单元格样式
     private String path; // 图片路径
+
+    public MyCell(MyCellType type, String text, int colIndex, int rowIndex, int colSpan, int rowSpan, int height, int width, CellStyle cellStyle, String path) {
+        this.type = type;
+        this.text = text;
+        this.colIndex = colIndex;
+        this.rowIndex = rowIndex;
+        this.colSpan = colSpan;
+        this.rowSpan = rowSpan;
+        this.height = height;
+        this.width = width;
+        this.cellStyle = cellStyle;
+        this.path = path;
+    }
+
+    public MyCell() {
+    }
 
     public MyCellType getType() {
         return type;

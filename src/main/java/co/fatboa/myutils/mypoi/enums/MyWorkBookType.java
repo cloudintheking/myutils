@@ -1,4 +1,4 @@
-package co.fatboa.mypoi.enums;
+package co.fatboa.myutils.mypoi.enums;
 /**
  * @Author: hl
  * @Description: excel类型枚举

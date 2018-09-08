@@ -1,4 +1,4 @@
-package co.fatboa.myqrcode;
+package co.fatboa.myutils.myqrcode;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
@@ -25,10 +25,10 @@ import java.util.EnumMap;
  */
 public class QrCodeUtil {
     private static final Logger logger = LoggerFactory.getLogger(QrCodeUtil.class);
-    private int BLACK = 0xFF000000;//二维码颜色
-    private int WHITE = 0xFFFFFFFF;//二维码背景颜色
-    private int width = 300;//二维码图片宽度
-    private int height = 300;//二维码图片高度
+    private static int BLACK = 0xFF000000;//二维码颜色
+    private static int WHITE = 0xFFFFFFFF;//二维码背景颜色
+    private static int width = 300;//二维码图片宽度
+    private static int height = 300;//二维码图片高度
 
     //二维码格式参数
     private static EnumMap<EncodeHintType, Object> hints = new EnumMap<EncodeHintType, Object>(EncodeHintType.class);
@@ -66,7 +66,7 @@ public class QrCodeUtil {
      * @param contents 二维码内容
      * @return 二维码图片
      */
-    public BufferedImage encodeImage(String contents) {
+    public static BufferedImage encodeImage(String contents) {
         BufferedImage image = null;
         try {
             BitMatrix matrix = new MultiFormatWriter().encode(contents, BarcodeFormat.QR_CODE, width, height, hints);
@@ -92,7 +92,7 @@ public class QrCodeUtil {
      * @param logoPath
      * @return 带logo的二维码图片
      */
-    public BufferedImage encodeImgLogo(BufferedImage qrImg, String logoPath) {
+    public static BufferedImage encodeImgLogo(BufferedImage qrImg, String logoPath) {
         try {
             Graphics2D g = qrImg.createGraphics();
             File logoImg = new File(logoPath);
@@ -133,7 +133,7 @@ public class QrCodeUtil {
      * @param format   生成二维码图片格式
      * @param outPath  生成二维码图片目录路径
      */
-    public void create(String contents, String qrName, String format, String outPath) {
+    public static void create(String contents, String qrName, String format, String outPath) {
         BufferedImage image = encodeImage(contents);
         File outDir = new File(outPath);
         if (!outDir.exists()) {
@@ -143,7 +143,7 @@ public class QrCodeUtil {
         File qrImg = new File(qrPath);
         try {
             ImageIO.write(image, format, qrImg);
-            logger.info("生成成功:"+qrPath);
+            logger.info("生成成功:" + qrPath);
         } catch (IOException e) {
             logger.error("二维码写入文件失败:" + e.getMessage());
             e.printStackTrace();
@@ -168,7 +168,7 @@ public class QrCodeUtil {
         File qrImg = new File(qrPath);
         try {
             ImageIO.write(image, format, qrImg);
-            logger.info("生成成功:"+qrPath);
+            logger.info("生成成功:" + qrPath);
         } catch (IOException e) {
             logger.error("二维码写入文件失败:" + e.getMessage());
             e.printStackTrace();

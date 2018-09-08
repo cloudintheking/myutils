@@ -5,10 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>co.fatboa.utils</groupId>
-    <artifactId>myUtils</artifactId>
+    <artifactId>myutils</artifactId>
     <version>1.0-SNAPSHOT</version>
     <dependencies>
-
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>

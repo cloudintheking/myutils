@@ -1,7 +1,7 @@
-package co.fatboa.mypoi;
+package co.fatboa.myutils.mypoi;
 
-import co.fatboa.mypoi.enums.MyCellType;
-import co.fatboa.mypoi.enums.MyWorkBookType;
+import co.fatboa.myutils.mypoi.enums.MyCellType;
+import co.fatboa.myutils.mypoi.enums.MyWorkBookType;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.apache.poi.POIXMLDocumentPart;
@@ -36,6 +36,11 @@ public class MyWorkBook {
         return mySheets;
     }
 
+    /**
+     * 设置excel版本
+     *
+     * @param myWorkBookType
+     */
     public void setWorkBookType(MyWorkBookType myWorkBookType) {
         if (myWorkBookType == MyWorkBookType.HSSFWORKBOOK) {
             this.workbook = new HSSFWorkbook();
@@ -44,8 +49,12 @@ public class MyWorkBook {
         }
     }
 
-    public void addSheet(MySheet mySheet) {
+    /**
+     * @param mySheet
+     */
+    public MyWorkBook addSheet(MySheet mySheet) {
         this.mySheets.add(mySheet);
+        return this;
     }
 
     /**
@@ -136,8 +145,9 @@ public class MyWorkBook {
         }
         int colIndex1 = myCell.getColIndex();
         int rowIndex1 = myCell.getRowIndex();
-        int colIndex2 = myCell.getColIndex() + myCell.getColSpan() - 1;
-        int rowIndex2 = myCell.getRowIndex() + myCell.getRowSpan() - 1;
+        int colIndex2 = myCell.getColIndex() + myCell.getColSpan();
+        int rowIndex2 = myCell.getRowIndex() + myCell.getRowSpan();
+        // System.out.println("col1:" + colIndex1 + ",col2:" + colIndex2 + ",row1:" + rowIndex1 + ",row2:" + rowIndex2);
         int picIndex = this.workbook.addPicture(buffer, Workbook.PICTURE_TYPE_PNG);
         HSSFPatriarch patriarch = (HSSFPatriarch) sheet.createDrawingPatriarch();
         HSSFClientAnchor anchor = new HSSFClientAnchor(50, 50, 0, 0, (short) colIndex1, rowIndex1, (short) colIndex2, rowIndex2);
@@ -182,7 +192,7 @@ public class MyWorkBook {
     }
 
     /**
-     * excel表数据转换为jsonArray
+     * 将excel表中数据转换为jsonArray
      * 确保excel表中每个sheet第一行为属性名,且结构均相同
      * 表内不可有图片
      *
@@ -265,6 +275,7 @@ public class MyWorkBook {
 
     /**
      * 读取excel中图片
+     *
      * @param sheet 注意传XSSFSheet类型
      * @return
      */

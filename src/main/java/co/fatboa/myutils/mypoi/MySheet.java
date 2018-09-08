@@ -1,4 +1,4 @@
-package co.fatboa.mypoi;
+package co.fatboa.myutils.mypoi;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,9 +11,17 @@ import java.util.List;
  * @Version 1.0
  */
 public class MySheet {
-    private List<MyCell> myCells=new ArrayList<MyCell>();
+    private List<MyCell> myCells = new ArrayList<MyCell>();
 
     public List<MyCell> getMyCells() {
         return myCells;
+    }
+
+    public void setMyCells(List<MyCell> myCells) {
+        this.myCells = myCells;
+    }
+
+    public void add(MyCell myCell) {
+        this.myCells.add(myCell);
     }
 }
